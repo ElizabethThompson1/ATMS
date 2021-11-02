@@ -1,8 +1,6 @@
 "use strict";
 //! START HERE! Then atm.js, then index.js
-const {balance, takeOutMoney, addMoney, correctPin}= require("./atm");
-const {mainMenu, accessATM, } = require("./index.js")
-const prompt = require("prompt-sync")
+let prompt = require("prompt-sync");
 
 
 
@@ -10,21 +8,16 @@ const prompt = require("prompt-sync")
 
 //TODO: Create variables for account balance & account pin
 
-function atmPin() {
-    let accountpin = 1123
-    return accountpin
-}
+const pinFunction = 1123
 
-let accountBalance ="10,ooo"
-function atmBalance (){
-   
-    console.log(accountBalance)
-}
+
+
+let atmBalance ="10,ooo"
 
 //Export these variables
 
 module.export = {
-    pin: atmPin,
+    pin: pinFunction,
     fullBalance: atmBalance,
   };
 
