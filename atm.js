@@ -1,7 +1,7 @@
 "use strict";
 //TODO: Import necessary values from account.js
 const {pinFunction,balanceFunction}= require("./account");
-const prompt = require("prompt-sync")
+const prompt = require("prompt-sync");
 
 
 function getBalance() {

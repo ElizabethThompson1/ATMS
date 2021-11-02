@@ -1,14 +1,15 @@
 "use strict";
+const {fullBalance, pin}= require("./account.js");
 const {balance, takeOutMoney, addMoney, correctPin}= require("./atm");
-const {pinFunction, balanceFunction} = require("./account");
-const prompt = require("prompt-sync");
+const prompt = require("prompt-sync")
 //! Don't forget to add "console": "integratedTerminal" to .vscode/launch.json after creating launch configuration
 //TODO: Import necessary functions from atm.js
 //TODO: Utilize prompt-sync so we can get user input for various functions
-//* Refer to Intro to Node.js PowerPoint for prompt-sync installation instructions
-let pinAccess = prompt("what is your pin?")
-function accessATM(pin) {
-    if (correctPin === pin){
+
+
+function accessATM() {
+  let pinAccess = console.log(require('prompt-sync')()('Enter Pin '))
+    if (correctPin === pinAccess){
     mainMenu()}
     else{
       alert("wrong pin") + pinAccess
@@ -18,31 +19,30 @@ function accessATM(pin) {
   //Use ATM.js validatePin function to verify pin matches
   //Proceed to main menu ONLY if they match
 }
-console.log (accessATM(pin))
 //TODO: Call accessATM function
-
+console.log(accessATM())
 function mainMenu() {
   let arr =  ["1.Current Balance ","2.Make A Deposit","3.Make a Withdrawal","4.Restart","Quit"]
         let finalOption=""
         for (let i = 0; i< arr.length; i++){
         finalOption += arr[i] + "\n";
         }
-  let questionarray =prompt("what would you like to do? 1,2,3,4,restart, or quit?"+ finalOption)
+  let questionarray =console.log(require('prompt-sync')()( "what would you like to do?"+ " "+finalOption))      
         switch (questionarray) {
           case "1","1.Current Balance","Current Balance":
-            balance
+            balance()
             break;
           case "2","2.Make A Deposit","Make A Deposit":
-            addMoney
+            addMoney()
             break;
           case "3","3.Make a Withdrawal","Make a Withdrawal":
-            takeOutMoney
+            takeOutMoney()
             break;
           case "4","4.restart","restart":
             mainMenu()
             break;
           case "quit":
-            accessATM
+            accessATM()
           default:
             return mainMenu(); // ask again
         }
@@ -50,7 +50,5 @@ function mainMenu() {
   //! Remember - we should keep prompting the user for options until they quit!
 
 }
-module.export = {
-  mainMenu:mainMenu,
-  accessATM: accessATM,
+module.export = { mainMenu,accessATM
 };

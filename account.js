@@ -23,9 +23,9 @@ function atmBalance (){
 
 //Export these variables
 
-module.export ={
-    pinFunction: atmPin(),
-    balanceFunction: atmBalance(),
-};
+module.export = {
+    pin: atmPin,
+    fullBalance: atmBalance,
+  };
 
   
